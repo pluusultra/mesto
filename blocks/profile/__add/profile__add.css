@@ -6,7 +6,7 @@
   border: 2px solid white;
   background-color: transparent;
   background-repeat: no-repeat;
-  background-image: url(../../../images/add-button-plus.png);
+  background-image: url(../../../images/add-button-plus.svg);
   background-position: center center;
   cursor: pointer;
   transition: opacity 0.3s linear;
