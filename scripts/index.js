@@ -57,6 +57,7 @@ function addCards(item) {
 
   textEl.textContent = item.name;
   imageEl.src = item.link;
+  imageEl.alt = item.name;
 
   const cardLike = newCard.querySelector('.card__like');
   cardLike.addEventListener('click', function () {
