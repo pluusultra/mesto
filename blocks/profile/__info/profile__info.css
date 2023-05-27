@@ -15,8 +15,7 @@
   .profile__info {
     margin-right: 0;
     margin: 26px 0 0 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-template-columns: 189px 18px;
+    padding-left: 28px;
   }
 }
