@@ -72,6 +72,16 @@ function closePopupByEsc(evt) {
   });
 }
 
+function closePopupByClickOverlay() {
+  popupList.forEach(item => {
+    item.addEventListener('mousedown', evt => {
+      if (evt.currentTarget === evt.target) {
+        closePopup(item);
+      }
+    });
+  });
+}
+
 function openPropfilePopup(popupName) {
   formPopupProfileName.value = profileNameEl.textContent;
   formPopupProfileDescription.value = profileDescriptionEl.textContent;
@@ -125,13 +135,3 @@ formAddNewCard.addEventListener('submit', function (event) {
 buttonClosePopupFullImage.addEventListener('click', function () {
   closePopup(popupFullImage);
 });
-
-function closePopupByClickOverlay() {
-  popupList.forEach(item => {
-    item.addEventListener('mousedown', evt => {
-      if (evt.currentTarget === evt.target) {
-        closePopup(item);
-      }
-    });
-  });
-}
