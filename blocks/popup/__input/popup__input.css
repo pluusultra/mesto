@@ -6,11 +6,7 @@
   min-height: 27px;
   color: black;
   padding-bottom: 13px;
-  margin-bottom: 30px;
   font-size: 14px;
   line-height: 1.214;
-}
-
-.popup__input:last-of-type {
-  margin-bottom: 48px;
+  margin: 0;
 }

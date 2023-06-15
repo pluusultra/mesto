@@ -17,9 +17,10 @@ const cardEl = templateCardContent.querySelector('.card');
 const formAddNewCard = document.querySelector('#add-form');
 
 const popupFullImage = document.querySelector('#popup-photo');
-const popupImageDescriptionText = document.querySelector('.popup__caption');
+const popupFullImageDescriptionText = document.querySelector('.popup__caption');
 const buttonClosePopupFullImage = document.querySelector('#popup-photo-close');
-const popupImageEl = document.querySelector('.popup__big-photo');
+const popupFullImagePhoto = document.querySelector('.popup__big-photo');
+const popupList = document.querySelectorAll('.popup');
 
 initialCards.forEach(function (item) {
   const newCard = addCards(item);
@@ -47,10 +48,9 @@ function addCards(item) {
 
   const cardImage = newCard.querySelector('.card__image');
   cardImage.addEventListener('click', function () {
-    popupImageEl.src = item.link;
-    popupImageEl.alt = item.name;
-    popupImageDescriptionText.textContent = item.name;
-    popupFullImage.classList.add('popup_opacity');
+    popupFullImagePhoto.src = item.link;
+    popupFullImagePhoto.alt = item.name;
+    popupFullImageDescriptionText.textContent = item.name;
     openPopup(popupFullImage);
   });
 
@@ -59,6 +59,17 @@ function addCards(item) {
 
 function openPopup(popupName) {
   popupName.classList.add('popup_opened');
+  document.body.addEventListener('keydown', closePopupByEsc);
+  closePopupByClickOverlay();
+}
+
+function closePopupByEsc(evt) {
+  popupList.forEach(item => {
+    if (evt.key === 'Escape') {
+      closePopup(item);
+      document.body.removeEventListener('keydown', closePopupByEsc);
+    }
+  });
 }
 
 function openPropfilePopup(popupName) {
@@ -114,3 +125,13 @@ formAddNewCard.addEventListener('submit', function (event) {
 buttonClosePopupFullImage.addEventListener('click', function () {
   closePopup(popupFullImage);
 });
+
+function closePopupByClickOverlay() {
+  popupList.forEach(item => {
+    item.addEventListener('mousedown', evt => {
+      if (evt.currentTarget === evt.target) {
+        closePopup(item);
+      }
+    });
+  });
+}
