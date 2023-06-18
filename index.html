@@ -30,13 +30,13 @@
     </footer>
     <div id="popup-edit" class="popup">
       <div class="popup__container">
-        <form novalidate name="popup-form" id="edit-form" class="popup__form">
+        <form novalidate name="formProfile" id="edit-form" class="popup__form">
           <fieldset class="popup__inputs">
             <h3 class="popup__title">Редактировать профиль</h3>
             <input
               required
               type="text"
-              name="popup-name"
+              name="profileName"
               class="popup__input popup__input_type_name"
               minlength="2"
               maxlength="40"
@@ -45,7 +45,7 @@
             <span class="popup__input-error name-input-error">asddas</span>
             <input
               type="text"
-              name="popup-description"
+              name="profileDescription"
               class="popup__input popup__input_type_description popup__input_type_link"
               required
               minlength="2"
@@ -61,7 +61,7 @@
     </div>
     <div id="popup-cards" class="popup">
       <div class="popup__container">
-        <form novalidate name="popup-form" id="add-form" class="popup__form">
+        <form novalidate name="formAdd" id="add-form" class="popup__form">
           <fieldset class="popup__inputs">
             <h3 class="popup__title">Новое место</h3>
             <input
@@ -84,7 +84,9 @@
               id="card-link-input"
             />
             <span class="popup__input-error card-link-input-error"></span>
-            <button type="submit" class="popup__save popup__add popup__button">Создать</button>
+            <button type="submit" name="buttonFormAdd" class="popup__save popup__add popup__button">
+              Создать
+            </button>
           </fieldset>
         </form>
         <button type="button" id="popup-add-close" class="popup__close"></button>
