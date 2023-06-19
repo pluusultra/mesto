@@ -82,13 +82,10 @@ function setDefaultValuesInProfilePopup(popupName) {
   formProfile.elements.profileName.value = profileNameEl.textContent;
   formProfile.elements.profileDescription.value = profileDescriptionEl.textContent;
 }
-setDefaultValuesInProfilePopup(popupProfile);
 
 function closePopup(popupName) {
   popupName.classList.remove('popup_opened');
   document.body.removeEventListener('keydown', closePopupByEsc);
-  resetErrorsFromInputs(popupName);
-  setDefaultValuesInProfilePopup(popupName);
 }
 
 function editProfile(firstVal, secondVal) {
@@ -102,21 +99,10 @@ function resetForm(form) {
   form.elements.buttonFormAdd.setAttribute('disabled', true);
 }
 
-function resetErrorsFromInputs(popupName) {
-  const inputList = document.querySelectorAll('.popup__input');
-  const errorElement = document.querySelectorAll('.popup__input-error');
-  inputList.forEach(inputElement => {
-    inputElement.classList.remove('popup__input_type_error');
-  });
-  errorElement.forEach(errorElement => {
-    errorElement.classList.remove('popup__error_visible');
-    errorElement.textContent = '';
-  });
-}
-
 closePopupByCrossAndOverlay(popupList);
 
 buttonOpenPopupProfile.addEventListener('click', function () {
+  setDefaultValuesInProfilePopup(popupProfile);
   openPopup(popupProfile);
 });
 
